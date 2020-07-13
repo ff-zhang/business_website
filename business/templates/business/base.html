@@ -7,26 +7,59 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport"  content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>Business Club</title>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <header>
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'business:index' %}">Home</a>
 
-    </nav>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Clubs
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {% for club in clubs %}
+                <a class="dropdown-item" href="{% url 'business:club' club %}">{{ club.name }}</a>
+                {% endfor %}
+              </div>
+            </li>
+            <li>
+              <a class="nav-item nav-link" href="{% url 'business:sign_up' %}">Sign Up</a>
+            </li>
+            <li>
+              <a class="nav-item nav-link" href="{% url 'business:innovation_hub' %}">Innovation Hub</a>
+            </li>
+          </div>
+        </div>
+      </nav>
+    </header>
       
-    <main>
-      <div class="container-fluid">
-        {% block content %}{% endblock content %}
-      </div>
+    <main class="container p-3">
+      {% block content %}{% endblock content %}
     </main>
 
-    <footer class="footer fixed-bottom py-3 bg-dark">
-      <div class="text-left col-sm-12 mx-2">
-        <a class="text-muted px-2" href="https://github.com/Hogwarts250/family_messages">Github</a>
-        <a class="text-muted px-2" href="https://felixzhangblog.herokuapp.com">Blog</a>
+    <footer class="footer bg-dark py-3">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-4 text-left">
+            <a class="text-muted px-2" href="https://github.com/Hogwarts250/family_messages">Github</a>
+            <a class="text-muted px-2" href="https://felixzhangblog.herokuapp.com">Blog</a>
+          </div>
+          <div class="col-sm-4">
+            <p class="text-muted text-center px-2">Created by Felix Zhang</p>
+          </div>
+        </div>
+
       </div>
     </footer>
   </body>

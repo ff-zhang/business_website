@@ -21,6 +21,8 @@ from . import views
 app_name = "business"
 urlpatterns = [
     path("", views.index, name="index"),
-    path("clubs/<str:club_name>", views.clubs, name="clubs"),
+    path("clubs/", views.clubs, name="clubs"),
+    path("clubs/<str:name>", views.club, name="club"),
     path("sign_up/", views.sign_up, name="sign_up"),
+    path("innovation_hub/", views.innovation_hub, name="innovation_hub")
 ]

@@ -1,11 +1,6 @@
 {% extends 'business/base.html' %} {% load bootstrap4 %}
 
 {% block content %}
-{% for club in clubs %}
-<h3>
-  <a href="{% url 'business:club' club %}">{{ club.name }}</a>
-</h3>
-
+<h1>{{ club.name }} description</h1>
 <p>{{ club.text }}</p>
-{% endfor %}
 {% endblock content %}

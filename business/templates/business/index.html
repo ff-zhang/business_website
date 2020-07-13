@@ -1,5 +1,64 @@
-{% extends 'business/base.html' %} {% load bootstrap4 %}
+{% extends 'business/base.html' %} {% load bootstrap4 %} {% load static %}
 
 {% block content %}
-<p>index</p>
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3 text-center">SMUS Business Clubs</h1>
+  </div>
+</div>
+
+<h3>What This is All About</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu lobortis elementum nibh tellus molestie nunc. Urna neque viverra justo nec ultrices dui. Tellus integer feugiat scelerisque varius. Mi eget mauris pharetra et ultrices. Convallis posuere morbi leo urna molestie at. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Eget arcu dictum varius duis. Cursus mattis molestie a iaculis at erat pellentesque adipiscing. Interdum varius sit amet mattis. Id porta nibh venenatis cras sed felis eget velit aliquet. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra accumsan. Fames ac turpis egestas maecenas pharetra convallis. Habitasse platea dictumst quisque sagittis purus. Mattis nunc sed blandit libero volutpat sed. Vulputate odio ut enim blandit. Tempus quam pellentesque nec nam.</p>
+
+<h3>Who We Are</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque in dictum non consectetur a erat nam at. Non curabitur gravida arcu ac tortor dignissim convallis aenean et. Curabitur gravida arcu ac tortor dignissim convallis aenean. Nibh praesent tristique magna sit amet purus gravida. Lectus proin nibh nisl condimentum id venenatis a condimentum vitae. Duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Morbi enim nunc faucibus a. Massa placerat duis ultricies lacus. Ut consequat semper viverra nam libero justo laoreet. Duis ut diam quam nulla porttitor massa. Dignissim sodales ut eu sem. Egestas diam in arcu cursus euismod quis viverra. Quisque non tellus orci ac. Id volutpat lacus laoreet non curabitur gravida arcu ac tortor. Feugiat in fermentum posuere urna nec tincidunt. Aliquam vestibulum morbi blandit cursus risus at. Enim nunc faucibus a pellentesque sit amet.</p>
+
+<h3>Why You Should Sign Up</h3>
+
+<div id="carouselClubPreveiw" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselClubPreveiw" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselClubPreveiw" data-slide-to="1"></li>
+    <li data-target="#carouselClubPreveiw" data-slide-to="2"></li>
+  </ol>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-interval="4000">
+      <img src="{% static 'business/test1.jpg' %}" class="d-block w-100 h-50" alt="test1">
+      <div class="carousel-caption d-none d-block">
+        <h5>First club</h5>
+      </div>
+    </div>
+    <div class="carousel-item" data-interval="4000">
+      <img src="{% static 'business/test2.jpg' %}" class="d-block w-100 h-50" alt="test2">
+      <div class="carousel-caption d-none d-block">
+        <h5>Second club</h5>
+      </div>
+    </div>
+    <div class="carousel-item" data-interval="4000">
+      <img src="{% static 'business/test3.jpg' %}" class="d-block w-100 h-50" alt="test3">
+      <div class="carousel-caption d-none d-block">
+        <h5>Third club</h5>
+      </div>
+    </div>
+  </div>
+
+  <a class="carousel-control-prev" href="#carouselClubPreveiw" role="button" data-slide="prev">
+    <span class="carousel-control-prev-item" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+
+  <a class="carousel-control-next" href="#carouselClubPreveiw" role="button" data-slide="next">
+    <span class="carousel-control-next-item" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<p>
+  1 Program. <a href="{% url 'business:clubs' %}">4 ROAs</a>
+</p>
+
+<a type="button" class="btn btn-primary" href="{% url 'business:sign_up' %}">
+  <h3>Sign Up Now</h3>
+</a>
 {% endblock content %}

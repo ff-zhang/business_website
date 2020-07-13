@@ -1,5 +1,26 @@
 {% extends 'business/base.html' %} {% load bootstrap4 %}
 
 {% block content %}
-<p>sign up</p>
+<form action="{% url 'business:sign_up' %}" method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    {{ form.first_name.error }}
+    <label for="{{ form.first_name.id_for_label }}">First Name: </label>
+    <input type="text" name="first_name" id="id_first_name" required>
+  </div>
+  <div class="form-group">
+    {{ form.recipient.error }}
+    <label for="{{ form.recipient.id_for_label }}">Email: </label>
+    <input type="email" name="recipient" id="id_recipient" required>
+  </div>
+  <div class="form-group">
+    {{ form.options.error }}
+    {% for option in form.options %}
+    <div class="form-check">
+        {{ option }}
+    </div>
+    {% endfor %}
+  </div>
+  <button type="submit">Sign Up</button>
+</form>
 {% endblock content %}
