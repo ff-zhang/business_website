@@ -1,0 +1,10 @@
+{% extends "blog/base.html" %} {% load bootstrap4 %}
+
+{% block blog %}
+<form action="{% url 'blog:edit_post' post.id %}" method="POST" class="form">
+  {% csrf_token %} {% bootstrap_form form %} {% buttons %}
+  <button name="submit">Save Changes</button>
+  {% endbuttons %}
+</form>
+
+{% endblock blog %}

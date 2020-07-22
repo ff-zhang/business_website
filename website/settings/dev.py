@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     "bootstrap4",
 
     # user-created apps
-    "business"
+    "business",
+    "blog",
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -125,7 +127,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = "C:/Users/felix/Documents/python_scripts/business_website/website/static/" #os.path.join(BASE_DIR, 'static')
 
 
 # Email Configuration

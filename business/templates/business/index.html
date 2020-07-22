@@ -1,12 +1,13 @@
 {% extends 'business/base.html' %} {% load bootstrap4 %} {% load static %}
 
-{% block content %}
-<div class="jumbotron">
-  <div class="container">
-    <h1 class="display-3 text-center">SMUS Business Clubs</h1>
-  </div>
-</div>
 
+{% block header %}
+<h1 class="display-1 py-5">
+  <strong>SMUS Business Clubs</strong>
+</h1>
+{% endblock header %}
+
+{% block content %}
 <h3>What This is All About</h3>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu lobortis elementum nibh tellus molestie nunc. Urna neque viverra justo nec ultrices dui. Tellus integer feugiat scelerisque varius. Mi eget mauris pharetra et ultrices. Convallis posuere morbi leo urna molestie at. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Eget arcu dictum varius duis. Cursus mattis molestie a iaculis at erat pellentesque adipiscing. Interdum varius sit amet mattis. Id porta nibh venenatis cras sed felis eget velit aliquet. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra accumsan. Fames ac turpis egestas maecenas pharetra convallis. Habitasse platea dictumst quisque sagittis purus. Mattis nunc sed blandit libero volutpat sed. Vulputate odio ut enim blandit. Tempus quam pellentesque nec nam.</p>
 
@@ -24,19 +25,19 @@
 
   <div class="carousel-inner">
     <div class="carousel-item active" data-interval="4000">
-      <img src="{% static 'business/test1.jpg' %}" class="d-block w-100 h-50" alt="test1">
+      <img src="{% static 'img/test1.jpg' %}" class="d-block w-100 h-50" alt="test1">
       <div class="carousel-caption d-none d-block">
         <h5>First club</h5>
       </div>
     </div>
     <div class="carousel-item" data-interval="4000">
-      <img src="{% static 'business/test2.jpg' %}" class="d-block w-100 h-50" alt="test2">
+      <img src="{% static 'img/test2.jpg' %}" class="d-block w-100 h-50" alt="test2">
       <div class="carousel-caption d-none d-block">
         <h5>Second club</h5>
       </div>
     </div>
     <div class="carousel-item" data-interval="4000">
-      <img src="{% static 'business/test3.jpg' %}" class="d-block w-100 h-50" alt="test3">
+      <img src="{% static 'img/test3.jpg' %}" class="d-block w-100 h-50" alt="test3">
       <div class="carousel-caption d-none d-block">
         <h5>Third club</h5>
       </div>

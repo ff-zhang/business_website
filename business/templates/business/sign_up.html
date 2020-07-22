@@ -1,5 +1,9 @@
 {% extends 'business/base.html' %} {% load bootstrap4 %}
 
+{% block header %}
+<h1 class=display-3>Sign Up</h1>
+{% endblock header %}
+
 {% block content %}
 <form action="{% url 'business:sign_up' %}" method="post">
   {% csrf_token %}

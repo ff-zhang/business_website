@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %} {% load bootstrap4 %}
+
+{% block blog %}
+<p>Topics</p>
+<ul>
+  {% for topic in topics %}
+  <li>
+    <a href="{% url 'blog:topic' topic.id %}">{{ topic }}</a>
+  </li>
+  {% empty %}
+  <li>No topics have been added yet.</li>
+  {% endfor %}
+</ul>
+{% endblock blog %}
