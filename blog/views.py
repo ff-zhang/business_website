@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 from business.models import Club
@@ -9,21 +10,13 @@ from .forms import TopicForm, PostForm
 
 # Create your views here.
 def index(request):
-    """The home page for the blog."""
+    """The index page for the blog."""
     topics = Topic.objects.order_by("text")
     posts = Post.objects.order_by("date_added").reverse()
     clubs = Club.objects.order_by("name")
     context = {"topics": topics, "posts": posts, "clubs": clubs}
 
     return render(request, "blog/index.html", context)
-
-def topics(request):
-    """Show all topics."""
-    topics = Topic.objects.order_by("text")
-    clubs = Club.objects.order_by("name")
-    context = {"topics": topics, "clubs": clubs}
-
-    return render(request, "blog/topics.html", context)
 
 def topic(request, topic_id):
     """Show a single topic and all its entries."""
@@ -35,25 +28,15 @@ def topic(request, topic_id):
 
     return render(request, "blog/topic.html", context)
 
-@login_required()
-def new_topic(request):
-    """Add a new topic."""
+@login_required
+def user_posts(request, user_id):
     topics = Topic.objects.order_by("text")
     clubs = Club.objects.order_by("name")
+    posts = User.objects.get(id=user_id).post_set.order_by("date_added").reverse
+    context = {"topics": topics, "clubs": clubs, "posts": posts}
 
-    if request.method != "POST":
-        # No data submitted; create a blank form.
-        form = TopicForm()
-    else:
-        # POST data submitted; process data.
-        form = TopicForm(data=request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse("blog:home"))
-
-    context = {"topics": topics, "form": form, "clubs": clubs}
-
-    return render(request, "blog/new_topic.html", context)
+    return render(request, "blog/user.html", context)
+    
 
 @login_required
 def new_post(request, topic_id=None):
@@ -73,11 +56,14 @@ def new_post(request, topic_id=None):
         # POST data submitted; process data.
         form = PostForm(data=request.POST)
         if form.is_valid():
-            new_post = form.save()
+            post = form.save()
+            post.user = request.user
+            post.save()
+
             if topic_id:
                 return HttpResponseRedirect(reverse("blog:topic", args=[topic_id]))
             else:
-                return HttpResponseRedirect(reverse("blog:home"))
+                return HttpResponseRedirect(reverse("blog:index"))
 
     context = {"topics": topics, "topic": topic, "form": form, "clubs": clubs}
 
@@ -98,7 +84,7 @@ def edit_post(request, post_id):
         form = PostForm(instance=post, data=request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse("blog:home"))
+            return HttpResponseRedirect(reverse("blog:index"))
 
     context = {"topics": topics, "post": post, "form": form, "clubs": clubs}
 

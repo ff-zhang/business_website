@@ -1,10 +1,10 @@
-{% extends "business/base.html" %} {% load bootstrap4 %}
+{% extends 'business/base.html' %} {% load bootstrap4 %}
 
 {% block header %}
 <div class="jumbotron-img text-center text-light" style="background-image: url('https://images.unsplash.com/photo-1594995297377-b4e91695313e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60');">
   <div class="container p-3">
     <h1 class=display-3>
-      <strong>Login</strong>
+      <strong>Sign In</strong>
     </h1>
   </div>
 </div>
@@ -12,19 +12,18 @@
 
 {% block content %}
 <div class="container border w-75 p-4 mt-2 mb-5">
-  <form method="POST" action="{% url 'users:login' %}" class="form">
-    {% csrf_token %} 
+  <form method="post">
+    {% csrf_token %}
     {% bootstrap_form form %}
     {% buttons %}
-    <button name="submit" class="btn btn-outline-success">Login</button>
+    <button type="submit" class="btn btn-outline-success">Create Account</button>
     {% endbuttons %}
-    <input type="hidden" name="next" value="{% url 'blog:index' %}" />
   </form>
 
   <div class="text-center">
     <p>
-      Don't have an account? Sign up <a href="{% url 'users:sign_up' %}">here</a>
+      Already have an account? Login <a href="{% url 'users:login' %}">here</a>
     </p>
   </div>
 </div>
-{% endblock content %}
+{% endblock %}

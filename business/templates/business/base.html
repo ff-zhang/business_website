@@ -2,7 +2,7 @@
 
 {% load bootstrap4 %} {% load static %} {% bootstrap_javascript jquery="full" %}
 
-<html lang="en">
+<html lang="en" class="h-100">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
   </head>
 
-  <body>
+  <body class="d-flex flex-column h-100">
     <header>
       <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="{% url 'business:index' %}">
@@ -44,31 +44,27 @@
           </ul>
 
           <form class="form-inline my-2"> 
-            <a class="btn btn-light" role="button" href="{% url 'business:sign_up' %}">Sign Up</a>
+            <a class="btn btn-light" role="button" href="{% url 'business:sign_up' %}">Sign Up for Clubs</a>
           </form>
         </div>
       </nav>
     </header>
       
     <main role="main">
-      <div class="jumbotron-img text-center text-light">
-        <div class="container p-3">
-          {% block header %}{% endblock header %}
-        </div>
-      </div>
-      <div class="container p-3">
+      {% block header %}{% endblock header %}
+      <div class="container p-3 mt-2">
         {% block content %}{% endblock content %}
       </div>
     </main>
 
-    <footer class="footer bg-dark py-3">
+    <footer class="footer bg-dark px-2 py-3 mt-auto">
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-4 text-left">
-            <a class="text-muted px-2" href="https://github.com/Hogwarts250/family_messages">Github</a>
+            <a class="text-muted" href="https://github.com/Hogwarts250/family_messages">Github</a>
           </div>
           <div class="col-sm-4">
-            <p class="text-muted text-center px-2">Created by Felix Zhang</p>
+            <p class="text-muted text-center my-auto">Created by Felix Zhang</p>
           </div>
         </div>
 

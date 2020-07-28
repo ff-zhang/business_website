@@ -3,9 +3,12 @@ Production Settings for Heroku
 """
 
 import environ
+import django_heroku
 
-# If using in your own project, update the project namespace below
 from website.settings.dev import *
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
 
 env = environ.Env(
     # set casting, default value

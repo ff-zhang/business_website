@@ -1,5 +1,35 @@
 {% extends 'business/base.html' %} {% load bootstrap4 %}
 
 {% block header %}
-<h1 class=display-3>Innovation Hub</h1>
+<div class="jumbotron-img text-center text-light" style="background-image: url('https://images.unsplash.com/photo-1594849981292-89dbaf5aee53?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80');">
+  <div class="container p-3">
+    <h1 class="display-3 py-3">
+      <strong>Innovation Hub</strong>
+    </h1>
+  </div>
+</div>
 {% endblock header %}
+
+{% block content %}
+<h3>
+  &emsp;This year, SMUS Launch club and the Inquiry and Innovation club launch a new initiative called the SMUS Innovation Hub.
+  <br>&emsp;This initiative aims to equip student entrepreneurs with both the business strategies and various engineering skills to create an unique prototype and a competitive start-up with an emphasis on social impact. William and Daniel also both have experience in applying for grants to realize their own community projects, and hope that their knowledge can help SMUS innovators make a difference.
+</h3>
+
+<h4 class="display-3 mt-4">
+  Messages from the Founders
+</h3>
+<div class="container px-4">
+  <div class="container border px-2 py-3 mt-2 mb-5">
+    <div class="px-3">
+      <h4 class="font-weight-light">
+        &emsp;Hi, I’m William Gao, founder of the Inquiry and Innovation Club and The Coastal Microplastics Project.  With this initiative, I hope to teach you various skills from 3D CAD to basic electronics with microcontrollers to give you the tools you need to create a working prototype.  More importantly, I hope to instill in you a passion for technology and innovation, as well as the motivation to constantly look for ways you can help your community.
+      </h4>
+      <h4 class="font-weight-light mt-2">
+        &emsp;Hi, I’m Daniel Chen, head of the launch club, a CFA investment foundation charter holder, and founder of Dormie House. In Grade 10, my team and I won 2nd place in the South Island Innovation Challenge. Through this initiative, I hope to teach you many business strategies from finding the right idea to making profit. Through this program, your leadership skills would be tested because you will be working in small teams. And I hope to give you the business knowledge that can help you turn your ideas into reality.
+      </h4>
+    </div>
+  </div>
+  
+</div>
+{% endblock content %}

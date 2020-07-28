@@ -1,24 +1,42 @@
 {% extends "business/base.html" %} {% load bootstrap4 %}
 
 {% block content %}
-<nav class="navbar navbar-expand-sm navbar-light bg-light"> 
-  <a class="navbar-brand" href="{% url 'blog:index' %}">test</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div class="container border p-3 mb-5">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavBlog" aria-controls="navbarNavBlog" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse p-2" id="navbarNavBlog">
+        <ul class="navbar-nav nav-fill w-100">
+          <li class="nav-item px-1">
+            <a class="nav-link text-gray-10" href="{% url 'blog:index' %}">All</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item px-1">
+            <a class="nav-link text-gray-10" href="{% url 'blog:user_posts' user.id %}">Your Posts</a>
+          </li>
+          {% endif %}
+          {% for topic in topics %}
+          <li class="nav-item px-1">
+            <a class="nav-link text-gray-10" href="{% url 'blog:topic' topic.id %}">{{ topic.text }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
 
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav mr-auto">
-      {% for topic in topics %}
-      <li>
-        <a class="nav-item nav-link">{{ topic.text }}</a>
-      </li>
-      {% endfor %}
-    </ul>
+      <form class="form-inline px-2">
+        {% if user.is_authenticated %}
+        <a class="btn btn-light" role="button" href="{% url 'users:log_out' %}">Log Out</a>
+        {% else %}
+        <a class="btn btn-light" role="button" href="{% url 'users:login' %}">Login</a>
+        {% endif %}
+      </form>
+    </div>
+  </nav>
+
+  <div class="container px-2 py-3">
+    {% block blog %} {% endblock blog %}
   </div>
-</nav>
-
-<div class="container py-3">
-  {% block blog %} {% endblock blog %}
 </div>
 {% endblock content %}

@@ -4,24 +4,23 @@
 <div class="jumbotron-img text-center text-light" style="background-image: url('https://images.unsplash.com/photo-1594933378474-86cd47841995?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1301&q=80');">
   <div class="container p-3">
     <h1 class="display-3 py-3">
-      <strong>{{ topic.text }}</strong>
+      <strong>Your Posts</strong>
     </h1>
   </div>
 </div>
 {% endblock header %}
 
 {% block blog %}
+{% if user.is_authenticated %}
 
 <ul class="px-4 py-2">
   {% for post in posts %}
   <div class="panel panel-default {% if not forloop.first %} pt-3 {% endif %}">
     <div class="panel-heading">
       <div class="row">
-        <div class="col-auto">
-          <h3>
-            {{ post.title }} <small>- by {{ post.user.first_name }} {{ post.user.last_name}}</small>
-          </h3>
-        </div>
+        <h3 class="col-auto">
+          {{ post.title }} <small>- {{ post.topic }} ({{ post.date_added|date:"M d, Y" }})</small>
+        </h3>
         
         {% if user.is_authenticated %}
         <div class="col pl-0 my-2">
@@ -32,7 +31,7 @@
         {% endif %}
 
         {% if user.is_authenticated and forloop.first %}
-        <div class="col-auto my-2">
+        <div class="col-auto align-self-end pb-2">
           <p class="text-right m-0">
             <a href="{% url 'blog:new_post' %}">New Post</a>
           </p>
@@ -50,4 +49,7 @@
   </p>
   {% endfor %}
 </ul>
+{% else %}
+<h3>You must login to access this page.</h3>
+{% endif %}
 {% endblock blog %}

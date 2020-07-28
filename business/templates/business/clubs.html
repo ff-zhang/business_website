@@ -1,11 +1,33 @@
 {% extends 'business/base.html' %} {% load bootstrap4 %}
 
-{% block content %}
-{% for club in clubs %}
-<h3>
-  <a href="{% url 'business:club' club %}">{{ club.name }}</a>
-</h3>
+{% block header %}
+<div class="jumbotron-img text-center text-light" style="background-image: url('https://images.unsplash.com/photo-1594961969476-f2487c766a25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60');">
+  <div class="container p-3">
+    <h1 class="display-3 py-3">
+      <strong>Clubs</strong>
+    </h1>
+  </div>
+</div>
+{% endblock header %}
 
-<p>{{ club.text }}</p>
-{% endfor %}
+{% block content %}
+<h3 class="display-3">
+  The clubs offered in the program are:
+</h3>
+<ul class="list-group px-5 pt-2">
+  {% for club in clubs %}
+  <li class="list-group-item">
+    <h3 class="font-weight-light">
+      <a href="{% url 'business:club' club %}">{{ club.name }}</a>
+    </h3>
+  </li>
+
+  <!-- <h3>
+    <a href="{% url 'business:club' club %}">{{ club.name }}</a>
+  </h3>
+  
+  <p>&emsp;{{ club.text }}</p> -->
+  {% endfor %}
+</ul>
+
 {% endblock content %}

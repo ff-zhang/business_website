@@ -2,10 +2,41 @@
 @import "../../../node_modules/bootstrap/scss/variables";
 @import "../../../node_modules/bootstrap/scss/mixins";
 
-$border-radius: 0.1rem;
+$border-radius: 0.2rem;
+
+$navbar-dark-color: rgba($white, .7);
+$navbar-dark-hover-color: rgba($white, .9);
+
+$display1-size: $font-size-base * 4.5;
+$display2-size: $font-size-base * 4;
+$display3-size: $font-size-base * 3;
+$display4-size: $font-size-base * 1;
+ 
+@media (min-width: 768px) {
+  $display1-size: $font-size-base * 6;
+  $display2-size: $font-size-base * 5.5;
+  $display3-size: $font-size-base * 4.5;
+  $display4-size: $font-size-base * 3.5;    
+
+  .display-1 {
+    font-size: $font-size-base * 6;
+  }
+
+  .display-2 {
+    font-size: $display2-size;
+  }
+
+  .display-3 {
+    font-size: $display3-size;
+  }
+
+  .display-4 {
+    font-size: $display4-size;
+  }
+}
 
 .jumbotron-img {
-  background-image: url("https://images.unsplash.com/photo-1595036910355-3ca3b2d057f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80");
+  background-image: url();
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;

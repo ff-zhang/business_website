@@ -10,6 +10,8 @@ urlpatterns = [
     # Login page
     path("", views.LoginView.as_view(), name="login"),
 
+    path("sign_up/", views.sign_up, name="sign_up"),
+
     # Logout page
-    path("logout/", views.logout_view, name="logout"),
+    path("log_out/", views.log_out, name="log_out"),
 ]

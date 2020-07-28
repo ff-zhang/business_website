@@ -1,16 +1,23 @@
 {% extends "blog/base.html" %} {% load bootstrap4 %}
 
+{% block header %}
+<div class="jumbotron-img text-center text-light" style="background-image: url('https://images.unsplash.com/photo-1594933378474-86cd47841995?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1301&q=80');">
+  <div class="container p-3">
+    <h1 class="display-3 py-3">
+      <strong>New Post</strong>
+    </h1>
+  </div>
+</div>
+{% endblock header %}
+
 {% block blog %}
-{% if topic %}
-<p><a href="{% url 'blog:topic' topic.id %}">Return to {{ topic }}</a></p>
-{% endif %}
 {% if topic %}
 <form action="{% url 'blog:new_post' topic.id %}" method="POST" class="form">
 {% else %}
 <form action="{% url 'blog:new_post' %}" method="POST" class="form">
 {% endif %}
   {% csrf_token %} {% bootstrap_form form %} {% buttons %}
-  <button name="submit">Add Post</button>
+  <button name="submit" class="btn btn-outline-success">Add Post</button>
   {% endbuttons %}
 </form>
 {% endblock blog %}

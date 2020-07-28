@@ -4,6 +4,48 @@
 
 $border-radius: 0.1rem;
 
+$navbar-dark-color: rgba($white, .7);
+$navbar-dark-hover-color: rgba($white, .9);
+
+$display1-size: $font-size-base * 4.5;
+$display2-size: $font-size-base * 4;
+$display3-size: $font-size-base * 3;
+$display4-size: $font-size-base * 1;
+ 
+@media (min-width: 768px) {
+  $display1-size: $font-size-base * 6;
+  $display2-size: $font-size-base * 5.5;
+  $display3-size: $font-size-base * 4.5;
+  $display4-size: $font-size-base * 3.5;    
+
+  .display-1 {
+    font-size: $font-size-base * 6;
+  }
+
+  .display-2 {
+    font-size: $display2-size;
+  }
+
+  .display-3 {
+    font-size: $display3-size;
+  }
+
+  .display-4 {
+    font-size: $display4-size;
+  }
+}
+
+.jumbotron-img {
+  background-image: url();
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  padding: $jumbotron-padding ($jumbotron-padding / 2);
+  @include border-radius(0);
+}
+
 @import "../../../node_modules/bootstrap/scss/root";
 @import "../../../node_modules/bootstrap/scss/reboot";
 @import "../../../node_modules/bootstrap/scss/type";

@@ -1,30 +1,23 @@
 {% extends 'business/base.html' %} {% load bootstrap4 %}
 
 {% block header %}
-<h1 class=display-3>Sign Up</h1>
+<div class="jumbotron-img text-center text-light" style="background-image: url('https://images.unsplash.com/photo-1551583899-d3f6258ec7c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60');">
+  <div class="container p-3">
+    <h1 class="display-3 py-3">
+      <strong>Sign Up</strong>
+    </h1>
+  </div>
+</div>
 {% endblock header %}
 
 {% block content %}
-<form action="{% url 'business:sign_up' %}" method="post">
-  {% csrf_token %}
-  <div class="form-group">
-    {{ form.first_name.error }}
-    <label for="{{ form.first_name.id_for_label }}">First Name: </label>
-    <input type="text" name="first_name" id="id_first_name" required>
-  </div>
-  <div class="form-group">
-    {{ form.recipient.error }}
-    <label for="{{ form.recipient.id_for_label }}">Email: </label>
-    <input type="email" name="recipient" id="id_recipient" required>
-  </div>
-  <div class="form-group">
-    {{ form.options.error }}
-    {% for option in form.options %}
-    <div class="form-check">
-        {{ option }}
-    </div>
-    {% endfor %}
-  </div>
-  <button type="submit">Sign Up</button>
-</form>
+<div class="container border w-75 p-4 mt-2 mb-5">
+  <form action="{% url 'business:sign_up' %}" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button type="submit" class="btn btn-outline-success">Sign Up</button>
+    {% endbuttons %}
+  </form>
+</div>
 {% endblock content %}
