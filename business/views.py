@@ -34,10 +34,10 @@ def sign_up(request):
         if form.is_valid():
             first_name = form.cleaned_data["first_name"]
             chosen_clubs = [club.title() for club in form.cleaned_data["options"]]
-            recipient = form.cleaned_data["recipient"]
+            email = form.cleaned_data["email"]
             club_email = 'jonathan.nguyen@smus.ca'
             
-            message = first_name + " (" + recipient + ") wants to join:\n"
+            message = first_name + " (" + email + ") wants to join:\n"
             for name in chosen_clubs:
                 message += name + "\n"
 
@@ -66,7 +66,7 @@ def sign_up(request):
                 "Thank You for Signing Up",
                 message,
                 settings.EMAIL_HOST_USER,
-                [recipient],
+                [email],
                 fail_silently=False,
             )
 
