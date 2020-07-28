@@ -4568,7 +4568,7 @@ input[type=button].btn-block {
   display: flex;
   padding-left: 0;
   list-style: none;
-  border-radius: 0.1rem;
+  border-radius: 0.2rem;
 }
 
 .page-link {
@@ -4596,12 +4596,12 @@ input[type=button].btn-block {
 
 .page-item:first-child .page-link {
   margin-left: 0;
-  border-top-left-radius: 0.1rem;
-  border-bottom-left-radius: 0.1rem;
+  border-top-left-radius: 0.2rem;
+  border-bottom-left-radius: 0.2rem;
 }
 .page-item:last-child .page-link {
-  border-top-right-radius: 0.1rem;
-  border-bottom-right-radius: 0.1rem;
+  border-top-right-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
 }
 .page-item.active .page-link {
   z-index: 3;
@@ -6206,27 +6206,27 @@ button.bg-dark:focus {
 }
 
 .rounded {
-  border-radius: 0.1rem !important;
+  border-radius: 0.2rem !important;
 }
 
 .rounded-top {
-  border-top-left-radius: 0.1rem !important;
-  border-top-right-radius: 0.1rem !important;
+  border-top-left-radius: 0.2rem !important;
+  border-top-right-radius: 0.2rem !important;
 }
 
 .rounded-right {
-  border-top-right-radius: 0.1rem !important;
-  border-bottom-right-radius: 0.1rem !important;
+  border-top-right-radius: 0.2rem !important;
+  border-bottom-right-radius: 0.2rem !important;
 }
 
 .rounded-bottom {
-  border-bottom-right-radius: 0.1rem !important;
-  border-bottom-left-radius: 0.1rem !important;
+  border-bottom-right-radius: 0.2rem !important;
+  border-bottom-left-radius: 0.2rem !important;
 }
 
 .rounded-left {
-  border-top-left-radius: 0.1rem !important;
-  border-bottom-left-radius: 0.1rem !important;
+  border-top-left-radius: 0.2rem !important;
+  border-bottom-left-radius: 0.2rem !important;
 }
 
 .rounded-lg {
