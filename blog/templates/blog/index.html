@@ -42,9 +42,11 @@
     </div>
   </div>
   {% empty %}
+  {% if user.is_authenticated %}
   <p class="text-right m-0">
     <a href="{% url 'blog:new_post' %}">New Post</a>
   </p>
+  {% endif %}
   {% endfor %}
 </ul>
 {% endblock blog %}
