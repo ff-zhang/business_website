@@ -13,7 +13,7 @@
 {% block blog %}
 <ul class="px-4 py-2">
   {% for post in posts %}
-  <div class="panel panel-default {% if not forloop.first %} pt-3 {% endif %}">
+  <div class="panel panel-default {% if not forloop.first and user.is_authenticated %} pt-3 {% endif %}">
     <div class="panel-heading">
       <div class="row">
         <h3 class="col-auto">
