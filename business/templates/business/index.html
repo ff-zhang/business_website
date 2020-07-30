@@ -21,7 +21,7 @@
   <br>&emsp;If you sign up for at least three clubs mentioned above, you are automatically enrolled. If you meet the attendance requirement for three of them, you will get an extra ROA for SMUS Business leaders. By the end of the year, our leadership team would select and award top 10 members who demonstrated outstanding leadership, insights and passion for business.
 </h4>
 
-<h1 class="display-3 mt-5">
+<h1 class="display-3 mt-4">
   <strong>Who We Are</strong>
 </h1 class="display-3">
 <h5 class="px-3 py-2">
@@ -62,7 +62,7 @@
     <div class="carousel-inner">
       {% for club in clubs %}
       <div class="carousel-item {% if forloop.first %} active {% endif %}" data-interval="5000">
-        <img src="{% static 'img/test1.jpg' %}" class="d-block w-100 h-50" alt="{{ club.name }} image">
+        <img src="{% static 'img/'|add:club.name|add:'.jpg' %}" class="d-block w-100 h-50" alt="{{ club.name }} image">
         <div class="carousel-caption d-non d-block">
           <h1>
             <strong><a href="{% url 'business:clubs' %}" class="text-white">1 Program. 4 ROAs.</a></strong>
