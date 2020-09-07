@@ -7,6 +7,7 @@ from random import randint
 
 from blog.models import Topic
 from business.models import Club
+from .models import User
 from .forms import SignUpForm
 
 # Create your views here.
@@ -25,13 +26,12 @@ def sign_up(request):
         if form.is_valid():
             user = form.save()
             user.refresh_from_db()
-            user.username = form.cleaned_data["email"]
-            user.save()
+
 
             blog_group = models.Group.objects.get(name="blog")
             blog_group.user_set.add(user)
 
-            user = authenticate(username=user.username, password=form.cleaned_data["password1"])
+            user = authenticate(email=user.email, password=form.cleaned_data["password1"])
             login(request, user)
 
             return HttpResponseRedirect(reverse("blog:index"))

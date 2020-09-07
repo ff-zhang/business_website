@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
-from business.models import Club
 from .models import Topic, Post
 from .forms import TopicForm, PostForm
+from business.models import Club
+from users.models import User
 
 # Create your views here.
 def index(request):

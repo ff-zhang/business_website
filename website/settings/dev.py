@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # third-party apps
     "bootstrap4",
+    'django_extensions',
 
     # user-created apps
     "business",
@@ -96,6 +97,8 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
+AUTH_USER_MODEL = "users.User"
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -131,7 +134,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = "C:/Users/felix/Documents/python_scripts/business_website/website/static/" #os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # Email Configuration
